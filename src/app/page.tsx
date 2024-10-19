@@ -42,9 +42,9 @@ export default function Home() {
               Init Data
             </Cell>
           </Link>
-          <Link href="/launch-params">
+          <Link href="/easy/1">
             <Cell subtitle="Platform identifier, Mini Apps version, etc.">
-              Launch Parameters
+              Launch Token Trials Academy
             </Cell>
           </Link>
           <Link href="/theme-params">
