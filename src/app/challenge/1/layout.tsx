@@ -1,10 +1,15 @@
 "use client";
 
-import { useState } from 'react';
-// import AppNavbar from '../components/AppNavbar';
-import Popup from './popup';
+import { ReactNode, useState } from 'react';
+import Popup from './popup'; // Ensure the correct path to Popup component
 
-export default function Layout({ children, helpText }) {
+// Define prop types
+interface LayoutProps {
+  children: ReactNode;      // ReactNode is the correct type for children
+  helpText: string | ReactNode; // Adjust helpText type if it's not just a string
+}
+
+export default function Layout({ children, helpText }: LayoutProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
