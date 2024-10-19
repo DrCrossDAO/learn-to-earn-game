@@ -8,6 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        darkBg: '#1A1A1D', // Dark background color
+        lightText: '#E6E6E6', // Light gray text color
+        highlight: '#FFD700', // Yellow highlight if needed
+        secondary: '#FFC300', // Secondary color (for buttons or accents)
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -17,4 +23,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;
