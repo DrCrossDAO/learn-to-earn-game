@@ -1,20 +1,30 @@
-"use client"; // This enables client-side rendering
+"use client"; // Enables client-side rendering
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'; // Import useRouter hook
+import Popup from './popup';
 
 const QuestionPage1 = () => {
-  const router = useRouter();
+  const router = useRouter(); // Initialize router for navigation
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (selectedAnswer) {
       localStorage.setItem('challenge_1_answer', selectedAnswer);
-      router.push('/challenge/2');
+      router.push('/challenge/2'); // Redirect to the next challenge (change to the correct path)
     } else {
       alert('Please select an answer before proceeding.');
     }
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -61,14 +71,21 @@ const QuestionPage1 = () => {
               It centralizes blockchain data to make it more efficient.
             </label>
           </div>
-          <button
-            type="submit"
-            className="btn btn-primary mt-4 w-full"
-          >
+          <button type="submit" className="btn bg-highlight text-black mt-4 w-full">
             Submit Answer
           </button>
         </form>
+        {/* Popup Button */}
+        <button
+          onClick={openModal}
+          className="ml-4 px-4 py-2 bg-yellow-500 text-black rounded-md shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 mt-4"
+        >
+          Help
+        </button>
       </div>
+
+      {/* Popup Modal */}
+      {isModalOpen && <Popup helpText="Here is the information about the question." closePopup={closeModal} />}
     </div>
   );
 };
