@@ -1,8 +1,14 @@
-"use client";
+'use client';
 
 import React from 'react';
 
-const Popup = ({ helpText, closePopup }) => {
+// Define the types for the props
+interface PopupProps {
+  helpText: string;
+  closePopup: () => void;
+}
+
+const Popup: React.FC<PopupProps> = ({ helpText, closePopup }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="bg-black bg-opacity-50 absolute inset-0" onClick={closePopup}></div>
