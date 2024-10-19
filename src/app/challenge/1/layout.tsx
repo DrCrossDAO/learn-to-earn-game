@@ -7,7 +7,8 @@ import { I18nProvider } from '@/core/i18n/provider';
 
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import 'normalize.css/normalize.css';
-import './_assets/globals.css';
+import '../../_assets/globals.css'; // This should go up two levels to access the _assets folder
+
 
 export const metadata: Metadata = {
   title: 'Your Application Title Goes Here',
