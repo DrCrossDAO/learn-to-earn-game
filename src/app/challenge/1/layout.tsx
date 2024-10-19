@@ -1,18 +1,31 @@
+import type { PropsWithChildren } from 'react';
+import type { Metadata } from 'next';
+import { getLocale } from 'next-intl/server';
+
+import { Root } from '@/components/Root/Root';
+import { I18nProvider } from '@/core/i18n/provider';
+
+import '@telegram-apps/telegram-ui/dist/styles.css';
 import 'normalize.css/normalize.css';
-import '../../_assets/globals.css';
-import { ReactNode } from 'react';  // Import ReactNode for typing 'children'
+import './_assets/globals.css';
 
-interface LayoutProps {
-  children: ReactNode;  // Define the type of 'children'
-}
+export const metadata: Metadata = {
+  title: 'Your Application Title Goes Here',
+  description: 'Your application description goes here',
+};
 
-export default function Layout({ children }: LayoutProps) {
+export default async function RootLayout({ children }: PropsWithChildren) {
+  const locale = await getLocale();
+
   return (
-    <div className="min-h-screen bg-gray-800 text-lightText flex items-center justify-center">
-      {/* Dark background and light text */}
-      <div className="w-full max-w-lg p-6 bg-gray-900 rounded-lg shadow-lg text-center">
-        {children}
-      </div>
-    </div>
+    <html lang={locale}>
+    <body>
+      <I18nProvider>
+        <Root>
+          {children}
+        </Root>
+      </I18nProvider>
+    </body>
+    </html>
   );
 }
