@@ -1,12 +1,12 @@
 "use client";
 
 import { ReactNode, useState } from 'react';
-import Popup from './popup'; // Ensure the correct path to Popup component
+import Popup from './popup'; // Ensure the import path is correct
 
-// Define prop types
+// Define the expected prop types
 interface LayoutProps {
-  children: ReactNode;      // ReactNode is the correct type for children
-  helpText: string | ReactNode; // Adjust helpText type if it's not just a string
+  children: ReactNode;      // ReactNode for children prop
+  helpText: string | ReactNode; // Assuming helpText can be a string or ReactNode
 }
 
 export default function Layout({ children, helpText }: LayoutProps) {
@@ -22,7 +22,6 @@ export default function Layout({ children, helpText }: LayoutProps) {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-800">
-      {/* Adjusted width and padding for responsiveness */}
       <div className="w-full max-w-md p-4 md:w-3/5 md:p-8 bg-gray-900 rounded shadow-md relative">
         {children}
         <button
