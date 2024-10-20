@@ -54,8 +54,8 @@ export default function Home() {
             </Cell>
           </Link>
           <Link href="/easy/1">
-            <Cell subtitle="Collect TON" className="text-yellow-400">
-              Collect TON
+            <Cell subtitle="Collect CASE Tokens" className="text-yellow-400">
+              Collect Rewards
             </Cell>
           </Link>
           <Link href="/easy/1">
