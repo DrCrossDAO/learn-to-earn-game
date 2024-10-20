@@ -1,8 +1,9 @@
 'use client';
 
-import { Section, Cell, Image, List } from '@telegram-apps/telegram-ui';
+import { Section, Cell, Image as TelegramImage, List } from '@telegram-apps/telegram-ui';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/components/Link/Link';
+import Image from 'next/image'; // Next.js Image import
 
 import tonSvg from './_assets/ton.svg';
 
@@ -11,7 +12,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-lightText"> {/* Dark background */}
-      <h1 className="text-5xl font-bold text-yellow-400 mb-8">Token Trials Academy</h1> {/* Main Title */}
+      <div className="w-full max-w-lg flex justify-center mb-8"> {/* Container for the image */}
+        <Image src="/token-trials.png" alt="Token Trials Academy" width={640} height={360} className="w-full h-auto object-contain" /> {/* Token Trials Academy Image */}
+      </div>
       <p className="text-xl text-gray-400 mb-6 text-center">by Cryptolawyer.net</p> {/* Subtitle */}
 
       {/* TON Wallet Connect Section */}
@@ -24,7 +27,7 @@ export default function Home() {
           <Link href="/ton-connect">
             <Cell
               before={
-                <Image
+                <TelegramImage
                   src={tonSvg.src}
                   style={{ backgroundColor: '#007AFF' }}
                 />
