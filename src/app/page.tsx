@@ -2,10 +2,7 @@
 
 import { Section, Cell, Image, List } from '@telegram-apps/telegram-ui';
 import { useTranslations } from 'next-intl';
-
 import { Link } from '@/components/Link/Link';
-import { LocaleSwitcher } from '@/components/LocaleSwitcher/LocaleSwitcher';
-import { Page } from '@/components/Page';
 
 import tonSvg from './_assets/ton.svg';
 
@@ -13,11 +10,16 @@ export default function Home() {
   const t = useTranslations('i18n');
 
   return (
-    <Page back={false}>
-      <List>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-lightText"> {/* Dark background */}
+      <h1 className="text-5xl font-bold text-yellow-400 mb-8">Token Trials Academy</h1> {/* Main Title */}
+      <p className="text-xl text-gray-400 mb-6 text-center">by Cryptolawyer.net</p> {/* Subtitle */}
+
+      {/* TON Wallet Connect Section */}
+      <div className="w-full max-w-lg mb-8">
         <Section
-          header="Features"
-          footer="You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects"
+          header="Connect Your Wallet"
+          footer=""
+          className="bg-gray-800 rounded-lg p-4"
         >
           <Link href="/ton-connect">
             <Cell
@@ -28,35 +30,38 @@ export default function Home() {
                 />
               }
               subtitle="Connect your TON wallet"
+              className="text-yellow-400"
             >
               TON Connect
             </Cell>
           </Link>
         </Section>
+      </div>
+
+      {/* Learn to Earn Section */}
+      <div className="w-full max-w-lg">
         <Section
-          header="Application Launch Data"
-          footer="These pages help developer to learn more about current launch information"
+          header="Tap to Learn to Earn"
+          footer="Token Trials Academy by Cryptolawyer.net"
+          className="bg-gray-800 rounded-lg p-4"
         >
-          <Link href="/init-data">
-            <Cell subtitle="User data, chat information, technical data">
-              Init Data
+          <Link href="/easy/1">
+            <Cell subtitle="Learn about global crypto-law" className="text-yellow-400">
+              Learn to Earn
             </Cell>
           </Link>
           <Link href="/easy/1">
-            <Cell subtitle="Platform identifier, Mini Apps version, etc.">
-              Launch Token Trials Academy
+            <Cell subtitle="Collect TON" className="text-yellow-400">
+              Collect TON
             </Cell>
           </Link>
-          <Link href="/theme-params">
-            <Cell subtitle="Telegram application palette information">
-              Theme Parameters
+          <Link href="/easy/1">
+            <Cell subtitle="Launch Token Trials Academy" className="text-yellow-400">
+              Start Game
             </Cell>
           </Link>
         </Section>
-        <Section header={t('header')} footer={t('footer')}>
-          <LocaleSwitcher/>
-        </Section>
-      </List>
-    </Page>
+      </div>
+    </div>
   );
 }
