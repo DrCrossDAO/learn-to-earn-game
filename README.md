@@ -1,3 +1,7 @@
+## Note: This quiz to earn mini-app is a prototype from a prior build. 
+
+### Need to update the content and Telegram accounts
+
 # Telegram Mini Apps Next.js Template
 
 
